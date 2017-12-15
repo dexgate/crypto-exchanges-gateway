@@ -42,6 +42,7 @@ _loadChart()
       "hide_top_toolbar": false,
       "withdateranges": true,
       "hideideas": true,
+      "hide_side_toolbar": false,
       "container_id":this._containerId
     });
 }
