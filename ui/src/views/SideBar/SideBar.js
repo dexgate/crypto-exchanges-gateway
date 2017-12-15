@@ -88,6 +88,9 @@ _defineServiceEntry(obj, id)
         case 'coinmarketcap':
             this._defineCoinMarketCapEntry(obj);
             break;
+        case 'settings':
+            this._defineSettingsEntry(obj);
+            break;
     }
 }
 
