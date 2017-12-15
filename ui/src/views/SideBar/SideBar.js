@@ -70,6 +70,17 @@ _defineCoinMarketCapEntry(obj)
     );
 }
 
+_defineSettingsEntry(obj)
+{
+    this._menu.push(
+        {
+            name: 'Settings',
+            url: obj.default.path,
+            icon: 'fa fa-bitcoin'
+        }
+    );
+}
+    
 _defineServiceEntry(obj, id)
 {
     switch (id)
