@@ -1,11 +1,11 @@
-FROM apendergast/ceg-docker-base:gateway-latest as gateway
-FROM apendergast/ceg-docker-base:ui-latest as ui
+FROM toneffectory/ceg-docker-base:gateway-latest as gateway
+FROM toneffectory/ceg-docker-base:ui-latest as ui
 COPY --from=gateway /root/dummy /root/dummy
 WORKDIR /root/
 ARG GIT_BRANCH=master
 ARG TIMESTAMP=0
 # build gateway
-RUN echo "$TIMESTAMP" && git clone https://github.com/aloysius-pgast/crypto-exchanges-gateway.git && cd crypto-exchanges-gateway && \
+RUN echo "$TIMESTAMP" && git clone https://github.com/toneffectory/crypto-exchanges-gateway.git && cd crypto-exchanges-gateway && \
     git checkout $GIT_BRANCH && \
     cp -R /root/dummy/gateway/node_modules . && npm install --unsafe-perm && \
     cp docker/config.docker.json config/config.json
@@ -13,7 +13,7 @@ RUN echo "$TIMESTAMP" && git clone https://github.com/aloysius-pgast/crypto-exch
 RUN cd crypto-exchanges-gateway/ui && \
     cp -R /root/dummy/ui/node_modules . && npm install --unsafe-perm && npm run build && rm -fr node_modules
 
-FROM apendergast/alpine-node:runtime-latest
+FROM toneffectory/alpine-node:runtime-latest
 WORKDIR /root/crypto-exchanges-gateway/
 COPY --from=ui /root/crypto-exchanges-gateway .
 
