@@ -1,5 +1,6 @@
 FROM apendergast/ceg-docker-base:gateway-latest as gateway
 FROM apendergast/ceg-docker-base:ui-latest as ui
+VOLUME /root
 COPY --from=gateway /root/dummy /root/dummy
 WORKDIR /root/
 ARG GIT_BRANCH=master
@@ -16,8 +17,6 @@ RUN cd crypto-exchanges-gateway/ui && \
 FROM apendergast/alpine-node:runtime-latest
 WORKDIR /root/crypto-exchanges-gateway/
 COPY --from=ui /root/crypto-exchanges-gateway .
-VOLUME /root/crypto-exchanges-gateway
-
 
 ENV cfg.auth.apikey ""
 ENV cfg.listen.externalEndpoint ""
