@@ -5,7 +5,7 @@ WORKDIR /root/
 ARG GIT_BRANCH=master
 ARG TIMESTAMP=0
 # build gateway
-RUN echo "$TIMESTAMP" && git clone https://github.com/aloysius-pgast/crypto-exchanges-gateway.git && cd crypto-exchanges-gateway && \
+RUN echo "$TIMESTAMP" && git clone https://github.com/toneffectory/crypto-exchanges-gateway.git && cd crypto-exchanges-gateway && \
     git checkout $GIT_BRANCH && \
     cp -R /root/dummy/gateway/node_modules . && npm install --unsafe-perm && \
     cp docker/config.docker.json config/config.json
