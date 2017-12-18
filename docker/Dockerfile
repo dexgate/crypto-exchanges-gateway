@@ -16,6 +16,7 @@ RUN cd crypto-exchanges-gateway/ui && \
 FROM apendergast/alpine-node:runtime-latest
 WORKDIR /root/crypto-exchanges-gateway/
 COPY --from=ui /root/crypto-exchanges-gateway .
+VOLUME /root/crypto-exchanges-gateway
 
 ENV cfg.auth.apikey ""
 ENV cfg.listen.externalEndpoint ""
