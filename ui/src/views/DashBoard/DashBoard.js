@@ -175,6 +175,8 @@ render()
         return (
             <div>
                 <br/>
+                gewoon een test
+                <br/>
                 <span style={{fontWeight:'bold'}}>Favourite pairs</span>
                 <ul className="list-group">
                 {starredPairsEntries()}
