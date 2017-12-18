@@ -18,6 +18,7 @@ WORKDIR /root/crypto-exchanges-gateway/
 COPY --from=ui /root/crypto-exchanges-gateway .
 VOLUME /root/crypto-exchanges-gateway
 
+
 ENV cfg.auth.apikey ""
 ENV cfg.listen.externalEndpoint ""
 ENV cfg.listenWs.externalEndpoint ""
